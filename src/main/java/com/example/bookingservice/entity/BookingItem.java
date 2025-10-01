@@ -17,8 +17,6 @@ import java.math.BigDecimal;
                 @Index(name = "idx_booking_item_showtime", columnList = "showtime_id"),
                 @Index(name = "idx_booking_item_seat", columnList = "seat_id")
         })
-@Getter
-@Setter
 public class BookingItem extends BaseEntity {
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
@@ -40,4 +38,36 @@ public class BookingItem extends BaseEntity {
     @NotNull
     @Column(name = "price", nullable = false, precision = 12, scale = 2)
     private BigDecimal price;
+
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
+    }
+
+    public Showtime getShowtime() {
+        return showtime;
+    }
+
+    public void setShowtime(Showtime showtime) {
+        this.showtime = showtime;
+    }
+
+    public Seat getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Seat seat) {
+        this.seat = seat;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 }

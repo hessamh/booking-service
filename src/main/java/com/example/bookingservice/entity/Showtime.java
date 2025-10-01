@@ -19,8 +19,6 @@ import java.time.OffsetDateTime;
                 @Index(name = "idx_showtime_hall", columnList = "hall_id"),
                 @Index(name = "idx_showtime_start", columnList = "start_at")
         })
-@Getter
-@Setter
 public class Showtime extends BaseEntity {
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
@@ -44,4 +42,44 @@ public class Showtime extends BaseEntity {
     // قیمت پایه بلیت برای این سانس
     @Column(name = "base_price", nullable = false, precision = 12, scale = 2)
     private BigDecimal basePrice = BigDecimal.ZERO;
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
+    public Hall getHall() {
+        return hall;
+    }
+
+    public void setHall(Hall hall) {
+        this.hall = hall;
+    }
+
+    public OffsetDateTime getStartAt() {
+        return startAt;
+    }
+
+    public void setStartAt(OffsetDateTime startAt) {
+        this.startAt = startAt;
+    }
+
+    public OffsetDateTime getEndAt() {
+        return endAt;
+    }
+
+    public void setEndAt(OffsetDateTime endAt) {
+        this.endAt = endAt;
+    }
+
+    public BigDecimal getBasePrice() {
+        return basePrice;
+    }
+
+    public void setBasePrice(BigDecimal basePrice) {
+        this.basePrice = basePrice;
+    }
 }

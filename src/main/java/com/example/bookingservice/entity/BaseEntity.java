@@ -8,7 +8,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 import java.time.OffsetDateTime;
 
 @MappedSuperclass
-@Getter
 public abstract class BaseEntity {
 
     @Id
@@ -22,6 +21,18 @@ public abstract class BaseEntity {
     @LastModifiedDate
     @Column(name = "updated_at", nullable = false)
     private OffsetDateTime updatedAt;
+
+    public Long getId() {
+        return id;
+    }
+
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public OffsetDateTime getUpdatedAt() {
+        return updatedAt;
+    }
 
     @PrePersist
     void prePersistTimestamps() {

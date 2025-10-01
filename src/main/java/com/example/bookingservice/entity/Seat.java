@@ -14,8 +14,6 @@ import lombok.Setter;
         indexes = {
                 @Index(name = "idx_seat_hall", columnList = "hall_id")
         })
-@Getter
-@Setter
 public class Seat extends BaseEntity{
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
@@ -30,4 +28,28 @@ public class Seat extends BaseEntity{
     @Min(1)
     @Column(name = "seat_number", nullable = false)
     private int seatNumber;
+
+    public Hall getHall() {
+        return hall;
+    }
+
+    public void setHall(Hall hall) {
+        this.hall = hall;
+    }
+
+    public int getRowNumber() {
+        return rowNumber;
+    }
+
+    public void setRowNumber(int rowNumber) {
+        this.rowNumber = rowNumber;
+    }
+
+    public int getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
+    }
 }
